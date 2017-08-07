@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/jukameyoce/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_3 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+</head>
+<body>
+  <div class="well span6" style="margin-top:20px;" ng-controller="ShowHideCtrl">
+		<label>Show?
+			<input type="checkbox" ng-model="checked">
+		</label>
+		<label>English?
+			<input type="checkbox" ng-model="eng" ng-true-value="abgne.tw" ng-false-value="男丁格爾">
+		</label>
+		<hr>
+		<h2 ng-show="checked">{{ eng }}</h2>
+        <h2 ng-hide="checked">{{ "勾選\"Show?\"以顯示文字"}}</br>{{"勾選\"English?\"則文字為英文" }}</h2>
+  </div>
+<script id="jsbin-javascript">
+var ShowHideCtrl = function($scope){
+	$scope.checked = false;
+	$scope.eng = '男丁格爾';
+};
+</script>
+</body>
+</html>

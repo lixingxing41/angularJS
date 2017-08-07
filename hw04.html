@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/fegobunalo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_4 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+</head>
+<body>
+    <div class="well span6" style="margin-top:20px;" ng-controller="FriendsCtrl">
+        <label>Search:</label>
+        <input type="text" ng-model="search">
+        <hr>
+        <h5>{{ "共有 "+ filtered.length +" 個清單項目" }}</h5>
+        <ul>
+            <li ng-repeat="friend in filtered = (friends | filter:search) ">{{ friend.name }}({{ friend.age }})</li>
+        </ul>
+    </div>
+<script id="jsbin-javascript">
+var FriendsCtrl = function($scope){
+	//$scope.friends = [ '男丁格爾', 'jelly', '梅干桑', '莫希爾' ];
+	$scope.friends = [
+		{ name: '男丁格爾', age: 18 }, 
+		{ name: 'jelly', age: 16 }, 
+		{ name: '梅干桑', age: 30 }, 
+		{ name: '莫希爾', age: 31 }
+	];
+};
+
+
+</script>
+</body>
+</html>

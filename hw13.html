@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/kufuwuhupu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app="CalApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_13 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+  <style>
+		span {
+			font-size: 16px;
+			font-weight: 900;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+  <form class="span5 form-inline" style="margin-top:20px;">
+	<div class="alert alert-info" ng-controller="CalCtrl">
+		<input type="number" class="input-small" ng-model="num1">
+		<span>*</span>
+		<input type="number" class="input-small"ng-model="num2" disabled>
+		<span>=</span>
+		{{ num1 * num2}}
+	</div>
+    <div class="alert alert-error" ng-controller="CalCtrl2">
+		<input type="number" class="input-small" ng-model="num3">
+		<span>/</span>
+		<input type="number" class="input-small"ng-model="num4" disabled>
+		<span>=</span>
+		{{ num3 / num4}}
+	</div>
+  </form>
+<script id="jsbin-javascript">
+var calApp = angular.module('CalApp', []);
+
+calApp.controller('CalCtrl', function($scope){
+	$scope.num1 = 0;
+	$scope.num2 = 5;
+});
+
+calApp.controller('CalCtrl2', function($scope){
+	$scope.num3 = 0;
+	$scope.num4 = 5;
+});
+</script>
+</body>
+</html>

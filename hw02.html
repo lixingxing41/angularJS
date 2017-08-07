@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/fudidabido/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_2 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+</head>
+<body>
+    <div class="well span6" style="margin-top:20px;" ng-controller="PersonCtrl">
+        <label>Name:</label>
+        <input type="text" ng-model="name" placeholder="Enter a name here">
+        <br>
+        <label>Age:</label>
+        <input type="text" ng-model="age" placeholder="Enter a number here">
+        <hr>
+        <h1>{{ name }}</h1>
+        <h2>{{ age }}</h2>
+    </div>
+    <div class="well span6" style="margin-top:20px;" ng-controller="PersonCtrl_2">
+        <label>Name:</label>
+        <input type="text" ng-model="name" placeholder="Enter a name here">
+        <br>
+        <label>Age:</label>
+        <input type="text" ng-model="age" placeholder="Enter a number here">
+        <hr>
+        <h1>{{ name }}</h1>
+        <h2>{{ age }}</h2>
+    </div>
+<script id="jsbin-javascript">
+    var PersonCtrl = function ($scope) {
+	    $scope.name = '男丁格爾';
+	    $scope.age = 18;
+
+	    $scope.$watch('name', function(){
+		    console.log($scope.name);
+	    });
+
+	    $scope.$watch('age', function(){
+		    if($scope.age < 18){
+			    console.error('可能是謊報年齡');
+		    }
+	    });
+    };
+
+    var PersonCtrl_2 = function ($scope) {
+        $scope.name = '白衣天使';
+        $scope.age = 60;
+
+        $scope.$watch('name', function () {
+            if ($scope.name === "") {
+                console.error('請輸入姓名!!');
+            }
+        });
+
+        $scope.$watch('age', function () {
+            if ($scope.age < 18) {
+                console.error($scope.age + '歲還沒成年阿~');
+            }
+        });
+    };
+</script>
+</body>
+</html>

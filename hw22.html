@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/wufaqulobe/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app="MyApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_22 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+</head>
+<body>
+  <div class="well span4" style="margin-top:20px;" ng-controller="Ctrl">
+		{{ text | camel}}
+  </div>
+<script id="jsbin-javascript">
+var myApp = angular.module('MyApp', []);
+ 
+myApp.controller('Ctrl', function($scope){
+  $scope.text = 'Hello Kitty';
+});
+    
+myApp.filter('camel', function(){
+  return function(str){
+    return str.replace(/\b\w/g, chr => chr.toUpperCase()).replace(" ", "");
+  };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/qewiwukuya/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_12 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+</head>
+<body>
+  <div class="span8" style="margin-top:20px;" align="center" ng-init="guess='http://cdn01.dcfever.com/articles/news/2017/03/170315_canon100marco_05.jpg';">
+		<div class="alert" style="text-align:center">
+			<button class="btn btn-primary" ng-click="guess='http://p2.wmpic.me/article/2017/04/05/1491360811_KGDMrHbN_215x185.jpg';">圖片改為 cat.jpg</button>
+			<button class="btn btn-primary" ng-click="guess='http://www.pngpix.com/wp-content/uploads/2016/03/Dog-Face-PNG-Image.png';">圖片改為 dog.png</button>
+            <button class="btn btn-primary" ng-click="guess='http://www.ghost64.com/qqtupian/zixunImg/local/2017/05/15/14948243905233.jpg';">圖片改為 what.gif</button>
+            <button class="btn btn-primary" ng-click="guess='http://cdn01.dcfever.com/articles/news/2017/03/170315_canon100marco_05.jpg';">圖片改為 flower.jpg</button>
+		</div>
+
+		<div class="alert alert-success">
+			<img ng-src="{{ guess }}">
+			
+			<a ng-href="{{ guess }}">瀏覽圖片</a>
+		</div>
+	</div>
+</body>
+</html>

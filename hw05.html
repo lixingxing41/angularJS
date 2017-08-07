@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/nujeqifaqa/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_5 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+  <style>
+		.friend-first-true {
+			color: red;
+		}
+		.friend-middle-true {
+			color: blue;
+		}
+		.friend-last-true {
+			color: green;
+		}
+		.friend-even-true {
+			color: blue;
+		}
+		.friend-odd-true {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+  <div class="well span6" style="margin-top:20px;" ng-controller="FriendsCtrl">
+		<label>Search:</label>
+		<input type="text" ng-model="search">
+		<hr>
+		<ul>
+			<li ng-repeat="friend in friends | filter:search">
+				{{ friend.name }}({{ friend.age }})
+				<span class="friend-even-{{$even}}" ng-show="$even">[Even]</span>
+				<span class="friend-odd-{{$odd}}" ng-show="$odd">[Odd]</span>
+			</li>
+		</ul>
+	</div>
+
+	<div class="well span6" style="margin-top:20px;" ng-controller="FriendsCtrl">
+		<h2 ng-repeat-start="friend in friends" class="friend-even-{{$even}}">{{ friend.name }} </h2>
+		<div class="alert alert-info">
+			{{ friend.name }} <span class="badge badge-important">{{ friend.age }} 歲</span>
+		</div>
+		<div class="progress progress-striped active" ng-repeat-end>
+			<div class="bar" style="width: {{ friend.age }}%;"></div>
+		</div>
+	</div>
+<script id="jsbin-javascript">
+var FriendsCtrl = function($scope){
+	//$scope.friends = [ '男丁格爾', 'jelly', '梅干桑', '莫希爾' ];
+	$scope.friends = [
+		{ name: '男丁格爾', age: 18 }, 
+		{ name: 'jelly', age: 16 }, 
+		{ name: '梅干桑', age: 30 }, 
+		{ name: '莫希爾', age: 31 }
+	];
+};
+</script>
+</body>
+</html>

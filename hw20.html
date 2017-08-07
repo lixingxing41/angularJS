@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/zowusaragu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_20 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+</head>
+<body>
+  <div class="well span4" style="margin-top:20px;" ng-init="clear()"  ng-controller="Ctrl">
+		<input type="button" class="btn btn-primary" value="Set" ng-click="set()">
+		<input type="button" class="btn btn-warning" value="Clear" ng-click="clear()">
+		<br><br>
+		<div ng-style="myStyle">男丁格爾's 脫殼玩</div>
+		<pre>myStyle = {{ myStyle }}</pre>
+  </div>
+<script id="jsbin-javascript">
+var Ctrl = function($scope){
+  $scope.set = function(){
+    $scope.myStyle={color:'red',fontSize:'24px','background-color':'yellow'};
+  };
+  
+  $scope.clear = function(){
+    $scope.myStyle={};
+  };
+};
+</script>
+</body>
+</html>

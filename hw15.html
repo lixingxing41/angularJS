@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/horezazipu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app="OnePiece">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HW_15 - AngularJS</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+  <script src="http://code.angularjs.org/1.2.0-rc.2/angular-route.min.js"></script>
+</head>
+<body>
+  <div class="well span4" style="margin-top:20px;" ng-controller="OnePieceCtrl">
+		<h2>海賊王</h2>
+		<div ng-view></div>
+  </div>
+<script id="jsbin-javascript">
+var onePiece = angular.module('OnePiece', ['ngRoute'], function($routeProvider){
+	$routeProvider.when('/', {
+		templateUrl: 'view.html'
+	}).when('/hello', {
+		templateUrl: 'hello.html'
+	}).otherwise({
+		redirectTo: '/'
+	});
+});
+
+onePiece.controller('OnePieceCtrl', function($scope){
+	$scope.friends = [{
+		name: '蒙其·D·魯夫', 
+		reward: 400000000
+	}, {
+		name: '羅羅亞·索隆', 
+		reward: 120000000
+	}, {
+		name: '娜美', 
+		reward: 16000000
+	}, {
+		name: '騙人布', 
+		reward: 30000000
+	}, {
+		name: '香吉士', 
+		reward: 77000000
+	}, {
+		name: '多尼多尼·喬巴', 
+		reward: 50
+	}, {
+		name: '妮可·羅賓', 
+		reward: 80000000
+	}, {
+		name: '佛朗基', 
+		reward: 44000000
+	}, {
+		name: '布魯克', 
+		reward: 33000000
+	}];
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by anonymous (http://jsbin.com/fowutibapa/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>HW_9 - AngularJS</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+</head>
+<body>
+    <div class="span6">
+        <div class="alert alert-info" style="margin-top:20px;" ng-init="name='請輸入姓名';account='請輸入帳號';password='請輸入密碼';" ng-controller="PersonCtrl">
+            <label>姓名:</label>
+            <input type="text" ng-model="name" placeholder="ex. 王大明">
+            <br>
+            <label>帳號:</label>
+            <input type="text" ng-model="account" placeholder="ex. daming123">
+            <br>
+            <label>密碼:</label>
+            <input type="password" ng-model="password" placeholder="ex. wang666666">
+            <hr>
+            <h3>Hi, {{ name }}!!</h3>
+            <h3>{{ message }}!!</h3>
+            <h3>{{ message2 }}!!</h3>
+            <br>
+            <div>
+                <label>我同意 <input type="checkbox" ng-model="agree"></label>
+                <button class="btn btn-primary" ng-disabled="!agree">送出</button>
+            </div>
+        </div>
+    </div>
+    <script id="jsbin-javascript">
+        var PersonCtrl = function ($scope) {
+            //Wait until the variable is init or will get 'undefined'
+            $scope.$watch('account', function () {
+                if ($scope.account === '請輸入帳號') {
+                    $scope.message = $scope.account;
+                }
+                else if ($scope.account === '') {
+                    $scope.message = '請輸入帳號';
+                }
+                else {
+                    $scope.message = '帳號已填寫';
+                }
+            });
+
+            $scope.$watch('password', function () {
+                if ($scope.password === '請輸入密碼') {
+                    $scope.message2 = $scope.password;
+                }
+                else if ($scope.password === '') {
+                    $scope.message2 = '請輸入密碼';
+                }
+                else {
+                    $scope.message2 = '密碼已填寫';
+                }
+            });
+
+        };
+    </script>
+</body>
+</html>
